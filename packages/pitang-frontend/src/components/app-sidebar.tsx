@@ -3,6 +3,8 @@ import * as React from "react";
 import { NavProjects } from "@/components/nav-projects";
 import { NavSecondary } from "@/components/nav-secondary";
 import { NavUser } from "@/components/nav-user";
+import { Link } from "@tanstack/react-router";
+
 import {
   Sidebar,
   SidebarContent,
@@ -41,6 +43,7 @@ const data = {
     },
   ],
 };
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { loggedUser, handleLogout } = useAuth();
 
@@ -48,8 +51,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
         <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" render={<a href="#" />}>
+        <SidebarMenuItem>
+          <SidebarMenuButton size="lg" asChild>
+            <Link to="/dashboard" className="flex items-center gap-2">
               <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                 <TerminalIcon className="size-4" />
               </div>
@@ -61,8 +65,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   {loggedUser?.company?.title}
                 </span>
               </div>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
+            </Link>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>

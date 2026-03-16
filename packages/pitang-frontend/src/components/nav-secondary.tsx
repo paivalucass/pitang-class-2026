@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { Link } from "@tanstack/react-router"
 
 import {
   SidebarGroup,
@@ -26,9 +27,11 @@ export function NavSecondary({
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton size="sm" render={<a href={item.url} />}>
-                {item.icon}
-                <span>{item.title}</span>
+              <SidebarMenuButton size="sm" asChild>
+                <Link to={item.url} className="flex items-center gap-2">
+                  {item.icon}
+                  <span>{item.title}</span>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}
