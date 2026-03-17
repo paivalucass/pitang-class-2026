@@ -40,7 +40,7 @@ export function LoginForm({
           </p>
         </div>
         <Field>
-          <FieldLabel htmlFor="username">username</FieldLabel>
+          <FieldLabel htmlFor="username">Username</FieldLabel>
           <Input
             id="username"
             name="username"
